@@ -1,9 +1,9 @@
-"""
+'''
 matrix.py: Defines a matrix data structure.
-"""
+'''
 
 class Matrix:
-	""" A simple bidimensional matrix. """
+	''' A simple bidimensional matrix. '''
 
 	def __init__(self, r, c):
 		self.rows = r
@@ -11,7 +11,7 @@ class Matrix:
 		self.data = []
 
 	def fromFile(self, file):
-		""" Reads matrix' content from file. """
+		''' Reads matrix' content from file. '''
 		for row in range(self.rows):
 			string = file.readline().strip().split()
 			line = [int(x) for x in string]
