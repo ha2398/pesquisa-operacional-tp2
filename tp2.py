@@ -2,6 +2,8 @@
 tp2.py: Main program.
 '''
 
+#from ford_fulkerson import ford_fulkerson
+import set_cover
 import sys
 
 NUM_ARGS = 4
@@ -52,12 +54,6 @@ def open_output_file(file_name):
 	output_file = open(file_name, 'w')
 	return output_file
 
-def set_cover():
-	pass
-
-def ford_fulkerson():
-	pass
-
 def main():
 	''' Main program. '''
 	# Checks arguments.
@@ -69,7 +65,7 @@ def main():
 
 	# Executes the selected algorithm.
 	if (algorithm == SET_COVER):
-		set_cover()
+		set_cover_algorithm()
 	if (algorithm == FORD_FULK):
 		ford_fulkerson()
 
