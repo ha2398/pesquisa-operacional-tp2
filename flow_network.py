@@ -12,7 +12,7 @@ class Edge:
 		self.capacity = c
 
 	def __repr__(self):
-		return '(' + str(self.source) + '->' + str(self.target) + ', ' + str(self.capacity) + ')\n'
+		return '(' + str(self.source) + '->' + str(self.target) + ', ' + str(self.capacity) + ')'
 
 class FlowNetwork:
 	''' Flow network data structure. '''
@@ -51,3 +51,25 @@ class FlowNetwork:
 	def get_incident_edges(self, v):
 		''' Returns the incident edges to vertex @v. '''
 		return self.edges[v]
+
+	def find_st_path(self, source, target, st_path):
+		''' Finds a @st_path that goes from @source to @target and is able to 
+			allow flow. @st_path is an accumulator list that stores the edges
+			used on the path so far. '''
+		# Checks if the st_path is already complete.
+		if source == target:
+			return st_path
+
+		''' For each edge incident to @source, looks for those with residual
+			flow greater than zero. This indicates that it is possible to push
+			flow towards the path that starts with those edges. '''
+		source_edges = self.get_incident_edges(source)
+		for edge in source_edges:
+			residual_flow = edge.capacity - self.flows[edge]
+
+			if residual_flow > 0 and not (residual_flow, edge) in st_path:
+				path = self.find_st_path(edge.target, target, \
+					st_path + [(residual_flow, edge)])
+
+				if path != None:
+					return path

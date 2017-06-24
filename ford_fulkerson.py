@@ -28,3 +28,8 @@ def ford_fulkerson(input, output):
 	graph = fn.FlowNetwork()
 	add_vertices_to_flow(num_v, graph)
 	add_edges_to_flow(c, N, graph)
+
+	for key, value in graph.edges.items():
+	    print(key, value)
+
+	print(graph.find_st_path(0, 3, []))
