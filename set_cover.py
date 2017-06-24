@@ -1,5 +1,5 @@
 '''
-set-cover.py: Approximation set-cover algorithm.
+set_cover.py: Approximation set-cover algorithm.
 '''
 
 import matrix

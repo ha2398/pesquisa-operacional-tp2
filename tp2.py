@@ -2,6 +2,7 @@
 tp2.py: Main program.
 '''
 
+import ford_fulkerson as ff
 import tp2io as tio
 import set_cover as sc
 import sys
@@ -19,7 +20,7 @@ def main():
 	if (algorithm == tio.SET_COVER):
 		sc.set_cover_algorithm(input_file, output_file)
 	if (algorithm == tio.FORD_FULK):
-		ford_fulkerson()
+		ff.ford_fulkerson(input_file, output_file)
 
 	# Closes files.
 	input_file.close()
