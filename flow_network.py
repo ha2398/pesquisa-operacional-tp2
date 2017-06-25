@@ -4,15 +4,17 @@ flow_network.py: Defines a Flow Network data structure.
 
 class Edge:
 	''' Directed edge. '''
-	def __init__(self, v1, v2, c):
+	def __init__(self, n, v1, v2, c):
 		''' Both @v1 and @v2 represent the vertices of the edge. @c indicates
-			its capacity. '''
+			its capacity. @n is the edge's id. '''
+		self.id = n
 		self.source = v1
 		self.target = v2
 		self.capacity = c
 
 	def __repr__(self):
-		return '(' + str(self.source) + '->' + str(self.target) + ', ' + str(self.capacity) + ')'
+		return 	'(' + str(self.id) + ', ' + str(self.source) + ', ' + \
+				str(self.target) + ')'
 
 class FlowNetwork:
 	''' Flow network data structure. '''
@@ -35,7 +37,7 @@ class FlowNetwork:
 		c = e.capacity
 
 		# Builds the backward edge
-		backward = Edge(v2, v1, 0)
+		backward = Edge(-1, v2, v1, 0)
 
 		# Sets the edges as each other's reverse edge.
 		e.reverse = backward
