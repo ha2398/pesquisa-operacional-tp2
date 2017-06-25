@@ -90,7 +90,7 @@ def get_cover_cost(cover, c):
 def set_cover_algorithm(input, output):
 	''' Set cover approximation algorithm. @input is the input file and
 		@output is the ouput file. '''
-	elem, sets, c, N = tio.read_initial_data(input)
+	elem, sets, c, N = tio.read_initial_data(input, True)
 
 	cover = set()
 	X = [0 for i in range(elem)]

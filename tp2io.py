@@ -54,12 +54,18 @@ def open_output_file(file_name):
 	output_file = open(file_name, 'w')
 	return output_file
 
-def read_initial_data(input_file):
+def read_initial_data(input_file, fp=False):
 	''' Reads, from @input_file, and returns the initial data needed by the
-		algorithms. '''
+		algorithms. @fp indicates if the cost list uses floating point numbers.
+		'''
 	l1 = int(input_file.readline())
 	l2 = int(input_file.readline())
-	c = [int(x) for x in input_file.readline().split()]
+	
+	if fp:
+		c = [float(x) for x in input_file.readline().split()]
+	else:
+		c = [int(x) for x in input_file.readline().split()]
+
 	N = m.Matrix(l1, l2)
 	N.from_file(input_file)
 
