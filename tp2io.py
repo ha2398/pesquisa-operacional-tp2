@@ -14,7 +14,7 @@ OUTPUT_INDEX = 3
 
 def print_usage():
 	''' Prints the program's correct usage. '''
-	print('Usage: python3', sys.argv[0], '<algorithm> <input> <output>', \
+	print('Usage:', sys.argv[0], '<algorithm> <input> <output>', \
 		file=sys.stderr)
 	exit()
 

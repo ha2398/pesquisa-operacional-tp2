@@ -36,9 +36,9 @@ Em ambos os casos, os algoritmos fornecerão saídas a cada iteração.
 
 ## Execução
 
-Para executar o programa, o seguinte comando deve ser executado:
+Para executar o programa, o seguinte comando deve ser executado no diretório do projeto:
 
-python3 tp2.py algoritmo entrada saida
+./tp2.py algoritmo entrada saida
 
 Onde algoritmo indica o algoritmo desejado (cobertura por conjuntos ou ford-fulkerson), entrada indica o nome do arquivo que contém os dados de entrada e saida representa o nome do arquivo onde toda a saída do programa será escrita.
 

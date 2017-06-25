@@ -51,7 +51,7 @@ def print_path(num_e, path, output):
 	for (flow, edge) in path:
 		edges[edge.id] = 1
 
-	print('[P]:', edges, file=output)
+	print(edges, file=output)
 
 def print_flows(flow_network, output):
 	''' Prints a list of flows on the edges as is the current state of the
@@ -61,12 +61,12 @@ def print_flows(flow_network, output):
 	flows.sort(key=lambda tup: tup[0])
 	flows = [x[1] for x in flows]
 
-	print('[F]:', flows, file=output)
+	print(flows, file=output)
 
 def print_capacities(c, output):
 	''' Print the list @c that represents the capacities of the edges on the 
 		graph. The list is printed on @output. '''
-	print('[C]:', c, file=output)
+	print(c, file=output)
 
 def get_max_flow(graph):
 	''' Returns the maximum flow running through the @graph. '''
@@ -95,4 +95,4 @@ def ford_fulkerson(input, output):
 		print('', file=output)
 		st_path = graph.find_st_path(s, t, [])
 
-	print('[M]:', get_max_flow(graph), file=output)
+	print('Maximum flow:', get_max_flow(graph), file=output)
