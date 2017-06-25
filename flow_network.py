@@ -13,7 +13,7 @@ class Edge:
 		self.capacity = c
 
 	def __repr__(self):
-		return 	'(' + str(self.id) + ', ' + str(self.source) + ', ' + \
+		return 	'(' + str(self.source) + '->' + \
 				str(self.target) + ')'
 
 class FlowNetwork:

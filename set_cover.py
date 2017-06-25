@@ -97,18 +97,15 @@ def set_cover_algorithm(input, output):
 	Y = [0 for i in range(sets)]
 	left_to_cover = [i for i in range(elem)]
 
-	print('y:', Y)
-	print('x:', X)
-
 	while len(left_to_cover) != 0:
-		print('\n')
 		next_point = left_to_cover[0] # TODO: Randomize point choice.
 		next_set = select_next_set(N, X, c, next_point)
 		cover.add(next_set)
 		Y[next_set] = 1
 		left_to_cover = cover_points(N, next_set, left_to_cover)
 
-		print('y:', Y)
-		print('x:', X)
+		print(Y, file=output)
+		print(X, file=output)
+		print('', file=output)
 
-	print('Cost:', get_cover_cost(cover, c))
+	print('Set cover cost:', get_cover_cost(cover, c), file=output)
