@@ -11,6 +11,7 @@ FORD_FULK = 'f'
 ALG_INDEX = 1
 INPUT_INDEX = 2
 OUTPUT_INDEX = 3
+DECIMAL_PLACES = 3
 
 def print_usage():
 	''' Prints the program's correct usage. '''
@@ -48,6 +49,15 @@ def open_input_file(file_name):
 	except FileNotFoundError:
 		print('[Error] Input file was not found.', file=sys.stderr)
 		exit()
+
+def format_number(n):
+	''' Returns a representation of @n that will ignore its decimal
+		part if it equals zero. '''
+	x = float(n)
+	if x.is_integer:
+		return int(x)
+	else:
+		return float(('%.' + str(DECIMAL_PLACES) + 'f') %x)
 
 def open_output_file(file_name):
 	''' Opens and returns the output file with name @file_name. '''

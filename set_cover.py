@@ -104,8 +104,9 @@ def set_cover_algorithm(input, output):
 		Y[next_set] = 1
 		left_to_cover = cover_points(N, next_set, left_to_cover)
 
-		print(Y, file=output)
-		print(X, file=output)
+		print(list(map(tio.format_number, Y)), file=output)
+		print(list(map(tio.format_number, X)), file=output)
 		print('', file=output)
 
-	print('Set cover cost:', get_cover_cost(cover, c), file=output)
+	print('Set cover cost:', tio.format_number(get_cover_cost(cover, c)), \
+		file=output)
